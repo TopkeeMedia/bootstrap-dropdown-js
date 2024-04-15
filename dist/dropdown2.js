@@ -60,7 +60,8 @@
             relatedTarget: this,
           };
           if (
-            (o.trigger((e = t.Event("show.bs.dropdown", i))))
+            (o.trigger((e = t.Event("show.bs.dropdown", i))),
+            e.isDefaultPrevented())
           )
             return;
           n.trigger("focus").attr("aria-expanded", "true"),
@@ -113,8 +114,8 @@
     t(document)
       .on("click.bs.dropdown.data-api", a)
       .on("click.bs.dropdown.data-api", n, o.prototype.toggle)
-      .on("keydown.bs.dropdown.data-api", n, o.prototype.keydown)
-      .on("keydown.bs.dropdown.data-api", ".dropdown-menu", o.prototype.keydown)
+      // .on("keydown.bs.dropdown.data-api", n, o.prototype.keydown)
+      // .on("keydown.bs.dropdown.data-api", ".dropdown-menu", o.prototype.keydown)
       .on(
         "click.bs.dropdown.data-api",
         `.dropdown form, .dropdown[data-auto-close='outside'] .dropdown-menu, .dropdown[data-auto-close='false'] .dropdown-menu,.dropdown[data-auto-close='outside'] ${n}`,
