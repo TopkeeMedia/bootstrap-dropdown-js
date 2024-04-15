@@ -71,32 +71,32 @@
       }
     }),
     (o.prototype.keydown = function (e) {
-      if (
-        /(38|40|27|32)/.test(e.which) &&
-        !/input|textarea/i.test(e.target.tagName)
-      ) {
-        var o = t(this);
-        if (
-          (e.preventDefault(),
-          e.stopPropagation(),
-          !o.is(".disabled, :disabled"))
-        ) {
-          var a = r(o),
-            d = a.hasClass("open");
-          if ((!d && 27 != e.which) || (d && 27 == e.which))
-            return (
-              27 == e.which && a.find(n).trigger("focus"), o.trigger("click")
-            );
-          var i = a.find(".dropdown-menu li:not(.disabled):visible a");
-          if (i.length) {
-            var s = i.index(e.target);
-            38 == e.which && s > 0 && s--,
-              40 == e.which && s < i.length - 1 && s++,
-              ~s || (s = 0),
-              i.eq(s).trigger("focus");
-          }
-        }
-      }
+      // if (
+      //   /(38|40|27|32)/.test(e.which) &&
+      //   !/input|textarea/i.test(e.target.tagName)
+      // ) {
+      //   var o = t(this);
+      //   if (
+      //     (e.preventDefault(),
+      //     e.stopPropagation(),
+      //     !o.is(".disabled, :disabled"))
+      //   ) {
+      //     var a = r(o),
+      //       d = a.hasClass("open");
+      //     if ((!d && 27 != e.which) || (d && 27 == e.which))
+      //       return (
+      //         27 == e.which && a.find(n).trigger("focus"), o.trigger("click")
+      //       );
+      //     var i = a.find(".dropdown-menu li:not(.disabled):visible a");
+      //     if (i.length) {
+      //       var s = i.index(e.target);
+      //       38 == e.which && s > 0 && s--,
+      //         40 == e.which && s < i.length - 1 && s++,
+      //         ~s || (s = 0),
+      //         i.eq(s).trigger("focus");
+      //     }
+      //   }
+      // }
     });
   var d = t.fn.dropdown;
   (t.fn.dropdown = function (e) {
@@ -114,8 +114,8 @@
     t(document)
       .on("click.bs.dropdown.data-api", a)
       .on("click.bs.dropdown.data-api", n, o.prototype.toggle)
-      // .on("keydown.bs.dropdown.data-api", n, o.prototype.keydown)
-      // .on("keydown.bs.dropdown.data-api", ".dropdown-menu", o.prototype.keydown)
+      .on("keydown.bs.dropdown.data-api", n, o.prototype.keydown)
+      .on("keydown.bs.dropdown.data-api", ".dropdown-menu", o.prototype.keydown)
       .on(
         "click.bs.dropdown.data-api",
         `.dropdown form, .dropdown[data-auto-close='outside'] .dropdown-menu, .dropdown[data-auto-close='false'] .dropdown-menu,.dropdown[data-auto-close='outside'] ${n}`,
